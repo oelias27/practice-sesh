@@ -48,14 +48,14 @@ export default class Active extends Component {
     const minutes = getMinutes(s);
     const hours = getHours(minutes);
 
-    return `${hours}:${minutes}:${seconds}`
+    return `${hours}:${minutes}:${seconds}`;
   }
 
 
   render () {
     let activities = this.props.activities.map((a) => {
       return (
-        <Activity key={a.id} details={a.details} />
+        <Activity key={a.id} details={a.details} convertTime={this.convertTime} />
       )
     })
 
