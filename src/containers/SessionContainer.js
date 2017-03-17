@@ -15,6 +15,11 @@ const mapDispatchToProps = (dispatch) => {
         activity
       })
     },
+    clearActivities: () => {
+      dispatch({
+        type: 'CLEAR_ACTIVITIES'
+      })
+    },
     deleteActivity: (id) => {
       dispatch({
         type: 'DELETE_ACTIVITY',
