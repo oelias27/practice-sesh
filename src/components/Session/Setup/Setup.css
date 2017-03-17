@@ -1,0 +1,23 @@
+input {
+  display: block;
+  margin: auto;
+}
+
+.newActivityWrapper {
+  display: flex;
+  width: 200px;
+  margin: auto;
+}
+
+.activitiesWrapper {
+  display: flex;
+  width: 200px;
+  margin: auto;
+  flex-direction: column;
+}
+
+.activity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
