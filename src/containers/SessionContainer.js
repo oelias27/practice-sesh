@@ -9,10 +9,16 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addActivity: (id, activity) => { 
+    addActivity: (activity) => { 
       dispatch({
         type: 'ADD_ACTIVITY',
         activity
+      })
+    },
+    deleteActivity: (id) => {
+      dispatch({
+        type: 'DELETE_ACTIVITY',
+        id
       })
     }
   }
