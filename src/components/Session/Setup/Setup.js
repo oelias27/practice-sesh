@@ -16,6 +16,12 @@ export default class Setup extends Component {
 
 
 
+  componentWillMount() {
+    this.props.clearActivities()
+  }
+
+
+
   deleteItem(id) {
     this.props.deleteActivity(id);
   }

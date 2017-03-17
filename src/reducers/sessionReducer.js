@@ -10,6 +10,14 @@ const sessionReducer = (state = initialState.currentSession , action) => {
           activities: [...state.activities, action.activity]
         }
       )
+    case 'CLEAR_ACTIVITIES':
+      return Object.assign({}, 
+        state, 
+        {
+          ...state,
+          activities: []
+        }
+      )
     case 'DELETE_ACTIVITY':
       return Object.assign({}, 
         state, 
