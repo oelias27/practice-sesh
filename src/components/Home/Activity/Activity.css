@@ -8,3 +8,11 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
+
+.months {
+    display: flex;
+    width: 1030px;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-between;
+}

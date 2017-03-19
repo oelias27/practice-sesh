@@ -27,21 +27,6 @@ class Cell extends Component {
     getColor(number) {
         let color = null;
 
-        // switch (number) {
-        //     case 1 <= number && number <= 3:
-        //         color = "lightgreen"
-        //         break;
-        //     case 3 <= number && number <= 5:
-        //         color = "green"
-        //         break;
-        //     case 5 <= number:
-        //         color = "darkgreen"
-        //         break;
-        //     default:
-        //         color = "lightgray"
-        //         break;
-        // }
-
         if (1 <= number && number <= 3) {
             color = "lightgreen"
         }
@@ -66,12 +51,12 @@ class Cell extends Component {
                 className="activity-cell" 
                 onMouseEnter={this.toggleToolTip} 
                 onMouseLeave={this.toggleToolTip}
-                style={{backgroundColor: this.getColor(this.props.number)}}
+                style={{backgroundColor: this.getColor(this.props.stats.hoursPracticed)}}
             >
                 <div 
                     className={this.state.hovered ? "active-tooltip" : "hidden-tooltip"}                    
                 >
-                    {this.props.number}
+                    {`${this.props.stats.hoursPracticed} hour(s) practiced on ${this.props.stats.day} `}
                     <div className="pointer">
                     </div>
                 </div>
