@@ -1,5 +1,10 @@
 import { connect } from 'react-redux';
 import Session from '../components/Session/Session.js'
+import { 
+        addActivity, 
+        clearActivities, 
+        deleteActivity 
+        } from '../actions/SessionActions'
 
 const mapStateToProps = (state) => {
   return {
@@ -10,21 +15,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addActivity: (activity) => { 
-      dispatch({
-        type: 'ADD_ACTIVITY',
-        activity
-      })
+      dispatch(addActivity(activity))
     },
     clearActivities: () => {
-      dispatch({
-        type: 'CLEAR_ACTIVITIES'
-      })
+      dispatch(clearActivities())
     },
     deleteActivity: (id) => {
-      dispatch({
-        type: 'DELETE_ACTIVITY',
-        id
-      })
+      dispatch((deleteActivity(id)))
     }
   }
 }
