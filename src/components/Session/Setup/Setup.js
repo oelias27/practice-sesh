@@ -5,6 +5,22 @@ import './Setup.css';
 export default class Setup extends Component {
 
   handleClick() {
+    if (!this.newActivity.value) {
+      return false;
+    }
+
+    this.addActivity();
+  }
+
+
+  handlePress(e) {
+    if (e.key === "Enter" && this.newActivity.value) {
+      this.addActivity();
+    }
+  }
+
+
+  addActivity() {
     const newActivity = {
       id: Date.now(),
       details: this.newActivity.value
@@ -17,7 +33,7 @@ export default class Setup extends Component {
 
 
   componentWillMount() {
-    this.props.clearActivities()
+    this.props.clearActivities();
   }
 
 
@@ -47,7 +63,10 @@ export default class Setup extends Component {
           {activities}
         </div>
         <div className="newActivityWrapper">
-          <input ref={el => this.newActivity = el} placeholder="Activity" />
+          <input onKeyUp={this.handlePress.bind(this)} 
+                 ref={el => this.newActivity = el} 
+                 placeholder="Activity" 
+          />
           <button onClick={this.handleClick.bind(this)} >Add</button>
         </div>
         <Link to="/session/active"><button>Start</button></Link>
