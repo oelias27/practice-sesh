@@ -1,0 +1,49 @@
+.activity-cell {
+    position: relative;
+    background-color: green;
+    width: 18px;
+    height: 18px;
+    margin: 1px;
+
+}
+
+.activity-cell:hover {
+    background-color: lightgreen;
+}
+
+.hidden-tooltip {
+    display: none;
+}
+
+.active-tooltip p {
+    z-index: 2;
+}
+
+.active-tooltip {
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 150px;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 2px 2px 2px 1px gray;
+    z-index: 1;
+    color: white;
+    border-radius: 2px;
+    opacity: 0.9;
+    background-color: black;
+
+}
+
+.pointer {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    background-color: black;
+    border-radius: 100% 0 0 0;
+    z-index: -1;
+}
