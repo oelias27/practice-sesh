@@ -5,24 +5,30 @@ export default class Active extends Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props)
+    console.log(this.props);
     this.state = {
       timerCount: 0
     }
   }
+
+
 
   componentWillMount() {
     this.timer = setInterval(() => {
       let timerCount = this.state.timerCount + 1;
       this.setState({
         timerCount: timerCount
-      })
-    }, 1000)
+      });
+    }, 1000);
   }
 
+
+
   componentWillUnmount() {
-    clearInterval(this.timer)
+    clearInterval(this.timer);
   }
+
+
 
   convertTime(s) {
     const getMinutes = (s) => {
@@ -52,12 +58,14 @@ export default class Active extends Component {
   }
 
 
+
+
   render () {
     let activities = this.props.activities.map((a) => {
       return (
         <Activity key={a.id} details={a.details} convertTime={this.convertTime} />
       )
-    })
+    });
 
     return (
       <div>
