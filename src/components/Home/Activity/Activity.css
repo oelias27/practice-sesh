@@ -1,0 +1,18 @@
+.graph {
+    width: 1070px;
+    margin: auto;
+    height: 150px;
+    border: 5px solid black;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.months {
+    display: flex;
+    width: 1030px;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
