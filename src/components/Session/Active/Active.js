@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import Activity from './Activity';
 
+import './Active.css';
+
 export default class Active extends Component {
   constructor(props) {
     super(props);
 
     console.log(this.props);
     this.state = {
-      timerCount: 0
+      timerCount: 0,
     }
+
+    this.toggleActivity = this.toggleActivity.bind(this);
   }
 
-
+  
 
   componentWillMount() {
     this.timer = setInterval(() => {
-      let timerCount = this.state.timerCount + 1;
-      this.setState({
-        timerCount: timerCount
-      });
+      this.props.tick();
     }, 1000);
   }
 
@@ -32,7 +33,8 @@ export default class Active extends Component {
 
   convertTime(s) {
     const getMinutes = (s) => {
-      const minutes = Math.floor(s / 60).toString();
+      let minutes = Math.floor(s / 60).toString();
+
 
       return minutes.length > 1 ? minutes : '0' + minutes;
 
@@ -40,7 +42,7 @@ export default class Active extends Component {
 
     const getHours = (m) => {
       const hours = Math.floor(m / 60).toString();
-
+      
       return hours.length > 1 ? hours : '0' + hours;
     } 
 
@@ -59,17 +61,31 @@ export default class Active extends Component {
 
 
 
+  toggleActivity(id) {
+    this.props.toggleActivity(id);
+  }
+
+
 
   render () {
     let activities = this.props.activities.map((a) => {
       return (
-        <Activity key={a.id} details={a.details} convertTime={this.convertTime} />
+        <Activity 
+          key={a.id} 
+          id={a.id} 
+          time={a.time}
+          details={a.details} 
+          convertTime={this.convertTime}
+          toggleActivity={this.toggleActivity}
+        />
       )
     });
 
     return (
-      <div>
-        {this.convertTime(this.state.timerCount)}
+      <div className="activeWrapper">
+        <div id="activeTimer">
+          {this.convertTime(this.props.time)}
+        </div>
         {activities}
       </div>
     )

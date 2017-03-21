@@ -23,10 +23,12 @@ export default class Setup extends Component {
   addActivity() {
     const newActivity = {
       id: Date.now(),
-      details: this.newActivity.value
+      details: this.newActivity.value,
+      timerOn: false,
+      time: 0
     }
 
-    this.props.addActivity(newActivity)
+    this.props.addActivity(newActivity);
     this.newActivity.value = "";
   }
 
@@ -46,11 +48,11 @@ export default class Setup extends Component {
 
   render () {
     let activities = this.props.activities.length === 0 ? null : this.props.activities.map((a, i) => {
-      let text = a.details.length <= 10 ? a.details : a.details.substring(0, 20) + "...";
+      let text = a.details;
 
       return (
         <div className="activity" key={a.id}>
-          <div>{text}</div>
+          <p>{text}</p>
           <button onClick={this.deleteItem.bind(this, a.id)}>x</button>
         </div>
       )
@@ -58,7 +60,7 @@ export default class Setup extends Component {
 
 
     return (
-      <div>
+      <div className="setupWrapper">
         <div className="activitiesWrapper">
           {activities}
         </div>
@@ -69,7 +71,7 @@ export default class Setup extends Component {
           />
           <button onClick={this.handleClick.bind(this)} >Add</button>
         </div>
-        <Link to="/session/active"><button>Start</button></Link>
+        <Link to="/session/active"><button id="startActivity">Start</button></Link>
       </div>
     )
   }

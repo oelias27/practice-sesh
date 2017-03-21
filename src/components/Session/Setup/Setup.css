@@ -1,23 +1,70 @@
-input {
-  display: block;
-  margin: auto;
-}
-
 .newActivityWrapper {
   display: flex;
-  width: 200px;
-  margin: auto;
+  margin: 30px auto;
+  justify-content: space-between;
+}
+
+.newActivityWrapper input {
+  padding: 10px;  
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  outline: none;
+  flex: 1;
+  margin: 0 30px 0 0;
+}
+
+.newActivityWrapper button {
+  background-color: steelblue;
+  border-radius: 5px;
+  width: 60px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 10px;
 }
 
 .activitiesWrapper {
   display: flex;
-  width: 200px;
   margin: auto;
   flex-direction: column;
 }
 
+.activitiesWrapper button {
+  background-color: red;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  width: 60px;
+  padding: 10px;
+}
+
+.setupWrapper {
+  width: 670px;
+  margin: auto;
+  /*border: 1px solid black;*/
+  padding: 10px;
+}
+
 .activity {
   display: flex;
+  margin: 5px 0;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.activity p {
+  margin: 0;
+  line-height: 35px;
+}
+
+#startActivity {
+  background-color: green;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  width: 60px;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
 }

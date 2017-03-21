@@ -1,0 +1,46 @@
+#activeTimer {
+    color: gray;
+    /*border: 1px solid black;*/
+    padding: 20px 0;
+    font-size: 24px;
+}
+
+.activeWrapper {
+    width: 670px;
+    padding: 10px;
+    margin: auto;
+}
+
+.activeActivity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.activityTimer {
+    color: gray;
+    font-size: 24px;
+    flex: 1;
+}
+
+.activeActivity button {
+    background-color: steelblue;
+    border-radius: 5px;
+    width: 60px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    padding: 10px;
+}
+
+.activityDetails {
+    flex: 1;
+    display: flex;
+}
+
+.buttonWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}

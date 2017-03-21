@@ -18,4 +18,17 @@ const deleteActivity = (id) => {
       }
 }
 
-export { addActivity, clearActivities, deleteActivity };
+const tick = () => {
+    return {
+        type: 'TICK'
+    }
+}
+
+const toggleActivity = (id) => {
+    return {
+        type: 'TOGGLE_ACTIVITY',
+        id
+    }
+}
+
+export { addActivity, clearActivities, deleteActivity, tick, toggleActivity };
