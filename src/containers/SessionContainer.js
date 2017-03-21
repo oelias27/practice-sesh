@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
-import Session from '../components/Session/Session.js'
+import Session from '../components/Session/Session.js';
 import { 
         addActivity, 
         clearActivities, 
-        deleteActivity 
-        } from '../actions/SessionActions'
+        deleteActivity,
+        tick,
+        toggleActivity 
+       } from '../actions/SessionActions';
 
 const mapStateToProps = (state) => {
   return {
+    time: state.currentSession.time,
     activities: state.currentSession.activities
   }
 }
@@ -22,6 +25,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     deleteActivity: (id) => {
       dispatch((deleteActivity(id)))
+    },
+    tick: () => {
+      dispatch(tick())
+    },
+    toggleActivity: (id) => {
+      dispatch(toggleActivity(id))
     }
   }
 }

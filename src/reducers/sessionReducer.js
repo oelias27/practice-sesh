@@ -10,6 +10,9 @@ const sessionReducer = (state = initialState.currentSession , action) => {
           activities: [...state.activities, action.activity]
         }
       )
+
+
+
     case 'CLEAR_ACTIVITIES':
       return Object.assign({}, 
         state, 
@@ -18,6 +21,9 @@ const sessionReducer = (state = initialState.currentSession , action) => {
           activities: []
         }
       )
+
+
+
     case 'DELETE_ACTIVITY':
       return Object.assign({}, 
         state, 
@@ -26,8 +32,54 @@ const sessionReducer = (state = initialState.currentSession , action) => {
           activities: state.activities.filter((a) => a.id !== action.id)
         }
       )
+
+
+
+    case 'TICK':
+      let newTime = state.time + 1;
+      let updateActivities = state.activities.map((a) => {
+        if (a.timerOn) {
+          return {
+            ...a,
+            time: a.time + 1
+          }
+        }
+        else {
+          return a;
+        }
+      });
+      return Object.assign({},
+        state,
+        {
+          ...state,
+          time: newTime,
+          activities: updateActivities
+        }
+      )
+
+
+
+    case 'TOGGLE_ACTIVITY':
+      updateActivities = state.activities.map((a) => {
+        if (a.id === action.id) {
+          return {
+            ...a,
+            timerOn: !a.timerOn
+          }
+        }
+        return a;
+      })
+      return Object.assign({},
+        state,
+        {
+          ...state,
+          activities: updateActivities
+        }  
+      )
+
+      
     default:
-      return state
+      return state;
   }
 }
 
