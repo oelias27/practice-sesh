@@ -8,17 +8,19 @@ import Home from './components/Home/Home.js';
 import Setup from './components/Session/Setup/Setup.js';
 import Active from './components/Session/Active/Active.js';
 
-import sessionContainer from './containers/SessionContainer.js'
+import sessionContainer from './containers/SessionContainer.js';
+import loginContainer from './containers/LoginContainer.js';
 
-import { Router, Route, hashHistory } from 'react-router';
+import { IndexRoute ,Router, Route, browserHistory } from 'react-router';
 
 import store from './store/store.js';
 
 
 const appRoutes = ({ store }) => (
   <Provider store={store}>
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
       <Route path="/" component={App}>
+        <IndexRoute component={loginContainer} />
         <Route path="/home" component={Home} />
         <Route path="session" component={sessionContainer}>
           <Route path="active" component={Active} />
