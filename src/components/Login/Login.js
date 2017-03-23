@@ -1,47 +1,75 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 class Login extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            username: null,
-            password: null
+        this.sendLogin = this.sendLogin.bind(this);
+        this.handleKeyUp = this.handleKeyUp.bind(this);
+        this.sendRegister = this.sendRegister.bind(this);
+    }
+
+    componentWillMount() {
+        if (this.props.authenticated) {
+            browserHistory.push('/home');
         }
     }
 
-    handleChange(e) {
-        if (e.target.id === 'loginUsername') {
-            this.setState({
-                ...this.state,
-                username: e.target.value
-            });
-        }
-        else {
-            this.setState({
-                ...this.state,
-                password: e.target.value
-            });
-        }
-
-        console.log(this.state)
+    sendLogin() {
+        this.props.loginUser(
+            this.usernameField.value, 
+            this.passwordField.value
+        );
     }
+
+    handleKeyUp(e) {
+        if (e.target.key === "Enter") {
+            this.sendLogin();
+        }
+    }
+
+    sendRegister() {
+        this.props.registerUser(
+            this.usernameField.value, 
+            this.passwordField.value
+        )
+    }
+
 
     render() {
+
         return (
             <div>
                 <input
-                    id="loginUsername" 
+                    ref={el => this.usernameField = el}
+                    onKeyUp={this.handleKeyUp}
                     placeholder="username" 
-                    onChange={this.handleChange.bind(this)} 
                 />
                 <input 
-                    id="loginPassword"
+                    ref={el => this.passwordField = el}
+                    onKeyUp={this.handleKeyUp}
+                    type="password"
                     placeholder="password" 
-                    onChange={this.handleChange.bind(this)} 
                 />
-                <button> Log In </button>
-                <button> Register </button>
+                <div>
+                    Remember me:
+                    <input 
+                        type="checkbox"
+                        value="remember"
+                        ref={el => this.rememberMe = el}
+                    />
+                </div>
+                
+                <button onClick={this.sendLogin}>
+                    Log In 
+                </button>
+                <button onClick={this.sendRegister}>
+                    Register
+                </button>
+                <p>
+                    {this.props.errorMessage || null}
+                </p>
             </div>
         );
     }

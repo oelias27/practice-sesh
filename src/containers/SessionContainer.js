@@ -6,7 +6,7 @@ import {
         deleteActivity,
         tick,
         toggleActivity 
-       } from '../actions/SessionActions';
+       } from '../actions/SessionActions.js';
 
 const mapStateToProps = (state) => {
   return {

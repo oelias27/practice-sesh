@@ -9,6 +9,7 @@ const userReducer = (state = initialState.user, action) => {
                     ...state,
                     id: action.user._id,
                     username: action.user.username,
+                    history: action.user.history,
                     authenticated: true
                 }
             )
@@ -17,9 +18,28 @@ const userReducer = (state = initialState.user, action) => {
                 state,
                 {
                     ...state,
-                    errorMsg: action.err
+                    errorMessage: action.err
                 }
             )
+        case 'REGISTER_SUCCESS':
+            return Object.assign({},
+                state,
+                {
+                    ...state,
+                    id: action.user._id,
+                    username: action.user.username,
+                    history: action.user.history,
+                    authenticated: true
+                }
+            )
+        case 'REGISTER_FAIL':
+            return Object.assign({},
+                state,
+                {
+                    ...state,
+                    errorMessage: action.err
+                }
+            )            
         default:
             return state;
     }
