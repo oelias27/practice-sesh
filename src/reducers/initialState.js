@@ -3,13 +3,9 @@ const initialState = {
     id: null,
     username: null,
     authenticated: false,
+    history: [],
+    admin: null
   },
-
-
-  history: {
-    sessions: null
-  },
-
 
   currentSession: {
     id: 0,
