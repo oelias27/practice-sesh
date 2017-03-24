@@ -3,11 +3,11 @@
     border: 1px solid lightGray;
     background-color: #FFCCBC;
     border-radius: 5px;
-    width: 640px;
+    width: 400px;
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%);
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -21,11 +21,14 @@
     outline: none;
 }
 
+/*#login h1 {
+    
+}*/
+
 .loginButtons {
     display: flex;
-    width: 50%;
-    margin: 20px auto 0 auto;
-    justify-content: space-around;
+    margin: 20px 20px 0 20px;
+    justify-content: space-between;
 
 }
 

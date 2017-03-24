@@ -43,6 +43,7 @@ class Login extends Component {
 
         return (
             <div id="login">
+                <h1>Practice Sesh</h1>
                 <input
                     ref={el => this.usernameField = el}
                     onKeyUp={this.handleKeyUp}
