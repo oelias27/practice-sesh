@@ -1,0 +1,49 @@
+#login {
+    box-sizing: border-box;
+    border: 1px solid lightGray;
+    background-color: #FFCCBC;
+    border-radius: 5px;
+    width: 640px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#login input {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    outline: none;
+}
+
+.loginButtons {
+    display: flex;
+    width: 50%;
+    margin: 20px auto 0 auto;
+    justify-content: space-around;
+
+}
+
+.loginButtons button {
+    background-color: #FF7043;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+}
+
+.loginButtons button[name="register"] {
+    background-color: #01579B;
+}
+
+.loginErr {
+    color: #BF360C;
+    height: 20px;
+}

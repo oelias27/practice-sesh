@@ -77,7 +77,8 @@ const sessionReducer = (state = initialState.currentSession , action) => {
         }  
       )
 
-      
+    case 'LOG_OUT':
+      return initialState.currentSession      
     default:
       return state;
   }

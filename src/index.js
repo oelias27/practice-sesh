@@ -11,7 +11,7 @@ import Active from './components/Session/Active/Active.js';
 import sessionContainer from './containers/SessionContainer.js';
 import loginContainer from './containers/LoginContainer.js';
 
-import { IndexRoute ,Router, Route, browserHistory } from 'react-router';
+import { IndexRedirect, Router, Route, browserHistory } from 'react-router';
 
 import store from './store/store.js';
 
@@ -20,7 +20,8 @@ const appRoutes = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={loginContainer} />
+        <IndexRedirect to="/login" />
+        <Route path="/login" component={loginContainer} />
         <Route path="/home" component={Home} />
         <Route path="session" component={sessionContainer}>
           <Route path="active" component={Active} />
