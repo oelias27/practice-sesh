@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
+import './Login.css';
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -40,7 +42,7 @@ class Login extends Component {
     render() {
 
         return (
-            <div>
+            <div id="login">
                 <input
                     ref={el => this.usernameField = el}
                     onKeyUp={this.handleKeyUp}
@@ -51,25 +53,22 @@ class Login extends Component {
                     onKeyUp={this.handleKeyUp}
                     type="password"
                     placeholder="password" 
-                />
-                <div>
-                    Remember me:
-                    <input 
-                        type="checkbox"
-                        value="remember"
-                        ref={el => this.rememberMe = el}
-                    />
+                />  
+                
+                <div className="loginButtons">
+                    <button name="login" onClick={this.sendLogin}>
+                        Log In 
+                    </button>
+                    <button name="register" onClick={this.sendRegister}>
+                        Register
+                    </button>
+                </div>
+                <div className="loginErr">
+                    <p>
+                        {this.props.errorMessage || null}
+                    </p>
                 </div>
                 
-                <button onClick={this.sendLogin}>
-                    Log In 
-                </button>
-                <button onClick={this.sendRegister}>
-                    Register
-                </button>
-                <p>
-                    {this.props.errorMessage || null}
-                </p>
             </div>
         );
     }
