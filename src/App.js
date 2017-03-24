@@ -10,7 +10,9 @@ class App extends Component {
     return (
       <div className="App">
         <NavContainer />
-        {this.props.children}
+        <div id="main">
+          {this.props.children}
+        </div>
       </div>
     );
   }

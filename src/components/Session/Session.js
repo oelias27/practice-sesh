@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './Session.css';
+
 export default class Session extends Component {
 
   render () {
@@ -10,7 +12,7 @@ export default class Session extends Component {
 
 
     return (
-      <div>
+      <div id="sessionWrapper">
         <h1>Session</h1>
         {children}
       </div>

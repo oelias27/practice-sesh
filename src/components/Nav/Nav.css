@@ -1,23 +1,51 @@
+/**
+ * dark background: #433f4a
+ * lightened 10%:   #5d5964  
+ * lightened 20%:   #76727d    
+ * lightened 30%:   #908c97  
+ *
+ *
+ *
+ */
+
+
+
 .nav {
-  background-color: lightgray;
-  width: 100%;
+  background-color: #17141f;
   height: 80px;
   display: flex;
+  position: fixed;
+  height: 100vh;
+  width: 180px;
+  flex-direction: column;
   align-items: center;
 }
 
-.navButtonWrapper {
-  margin: auto;
+.userControls {
+  position: absolute;
+  bottom: 20px;
 }
 
-.nav button {
-  background-color: steelblue;
-  border-radius: 5px;
-  width: 60px;
+.userControls p {
+  font-size: 24px;
+  margin: 0;
+}
+
+#navLinkWrapper {
+  margin-top: 80px;
+}
+
+.navLink {
+  padding: 10px 0;
+  display: block;
+  width: 180px;
+  transition: all 200ms ease-out;
+  color: #908c97;
   cursor: pointer;
-  border: none;
-  margin: 5px;
-  outline: none;
+}
+
+
+.navLink:hover {
   color: white;
-  padding: 10px;
+  background-color: #5d5964;
 }

@@ -4,6 +4,7 @@ import {logOut} from '../actions/NavActions.js';
 
 const mapStateToProps = (state) => {
     return {
+        username: state.user.username,
         authenticated: state.user.authenticated
     }
 }

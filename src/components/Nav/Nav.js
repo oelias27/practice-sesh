@@ -15,10 +15,6 @@ export default class Nav extends Component {
     browserHistory.push('/login');
   }
 
-  componentWillReceiveProps() {
-    console.log('receieved ')
-  }
-
   render () {
     if (!this.props.authenticated) {
       return false;
@@ -26,11 +22,38 @@ export default class Nav extends Component {
 
     return (
       <div className="nav">
-        <div className="navButtonWrapper">
-          <Link to="/home"><button>Home</button></Link>
-          <Link to="/session/setup"><button>New</button></Link>
-          <button onClick={this.handleClick}>Logout</button>
-        </div>
+
+          <Link to="/home" style={{textDecoration: 'none'}}>
+            <div className="navLink">
+              Practice Sesh
+            </div>
+          </Link>
+
+
+
+          <div id="navLinkWrapper">
+
+            <Link to="/session/setup" style={{textDecoration: 'none'}}>
+              <div className="navLink">
+                New
+              </div>
+            </Link>
+
+            <Link to="/home" style={{textDecoration: 'none'}}>
+              <div className="navLink">
+                History
+              </div>
+            </Link>
+            
+          </div>
+
+
+          <div className="userControls">
+            <p className="navLink">
+              {this.props.username}
+            </p>
+            <i className="fa fa-sign-out fa-1x navLink" onClick={this.handleClick} ></i>
+          </div>
       </div>
     )
   }
