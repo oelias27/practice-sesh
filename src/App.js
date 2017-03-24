@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import Nav from './components/Nav/Nav.js';
+import NavContainer from './containers/NavContainer';
 
 class App extends Component {
 
   render() {
     return (
       <div className="App">
-        <Nav />
+        <NavContainer />
         {this.props.children}
       </div>
     );

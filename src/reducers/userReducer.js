@@ -2,6 +2,7 @@ import initialState from './initialState.js';
 
 const userReducer = (state = initialState.user, action) => {
     switch (action.type) {
+
         case 'LOGIN_SUCCESS':
             return Object.assign({},
                 state,
@@ -13,6 +14,8 @@ const userReducer = (state = initialState.user, action) => {
                     authenticated: true
                 }
             )
+
+
         case 'LOGIN_FAIL':
             return Object.assign({},
                 state,
@@ -21,6 +24,8 @@ const userReducer = (state = initialState.user, action) => {
                     errorMessage: action.err
                 }
             )
+
+
         case 'REGISTER_SUCCESS':
             return Object.assign({},
                 state,
@@ -32,6 +37,8 @@ const userReducer = (state = initialState.user, action) => {
                     authenticated: true
                 }
             )
+
+
         case 'REGISTER_FAIL':
             return Object.assign({},
                 state,
@@ -39,7 +46,10 @@ const userReducer = (state = initialState.user, action) => {
                     ...state,
                     errorMessage: action.err
                 }
-            )            
+            )    
+
+        case 'LOG_OUT':
+            return initialState.user        
         default:
             return state;
     }
