@@ -28,8 +28,9 @@
     color: white;
     border-radius: 2px;
     opacity: 0.9;
+    padding: 2px;
     background-color: black;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .pointer {

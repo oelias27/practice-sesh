@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { browserHistory } from 'react-router';
+
 const addActivity = (activity) => {
     return {
         type: 'ADD_ACTIVITY',
@@ -18,9 +21,10 @@ const deleteActivity = (id) => {
       }
 }
 
-const tick = () => {
+const tick = (notes) => {
     return {
-        type: 'TICK'
+        type: 'TICK',
+        notes
     }
 }
 
@@ -31,4 +35,23 @@ const toggleActivity = (id) => {
     }
 }
 
-export { addActivity, clearActivities, deleteActivity, tick, toggleActivity };
+
+const sendSession = (session) => {
+    const request = axios.post('http://localhost:3000/users/login', {
+        session
+    })
+
+    return (dispatch) => {
+        request.then(data => {
+            dispatch({
+                type: 'SESSION_SUBMITTED',
+                session: data.session
+            })
+
+            browserHistory.push('/home');
+        })
+    }
+}
+
+
+export { addActivity, clearActivities, deleteActivity, tick, toggleActivity, sendSession };

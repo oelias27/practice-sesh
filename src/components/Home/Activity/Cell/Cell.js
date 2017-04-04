@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 
 import './Cell.css';
 
+/**
+ * 
+ * @param {Number} [key]  Key to distinguish mapped components on render
+ * @param {Number} [hoursPracticed]  Hours logged on day for display
+ * @param {String} [day] Date of session
+ * 
+ * 
+ * @module Cell
+ * @type {ReactClass}
+ */
 class Cell extends Component {
     constructor(props) {
         super(props);
@@ -51,12 +61,12 @@ class Cell extends Component {
                 className="activity-cell" 
                 onMouseEnter={this.toggleToolTip} 
                 onMouseLeave={this.toggleToolTip}
-                style={{backgroundColor: this.getColor(this.props.stats.hoursPracticed)}}
+                style={{backgroundColor: this.getColor(this.props.hoursPracticed)}}
             >
                 <div 
                     className={this.state.hovered ? "active-tooltip" : "hidden-tooltip"}                    
                 >
-                    {`${this.props.stats.hoursPracticed} hour(s) practiced on ${this.props.stats.day} `}
+                    {`${this.props.hoursPracticed} hour(s) practiced on ${this.props.day} `}
                     <div className="pointer">
                     </div>
                 </div>

@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
+
 import Activity from './Activity';
+import Notes from './Notes.js';
 
 import './Active.css';
 
+/**
+ *  * Redux *
+ * @param {Array} [activities] Activity object for tracking time
+ * @param {Number} [time] Active time in seconds
+ * 
+ * @module Active
+ * @type {ReactClass}
+ */
 export default class Active extends Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props);
     this.state = {
-      timerCount: 0,
+      notes: ""
     }
 
     this.toggleActivity = this.toggleActivity.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   
 
   componentWillMount() {
     this.timer = setInterval(() => {
-      this.props.tick();
+      this.props.tick(this.state.notes);
     }, 1000);
   }
 
@@ -27,6 +37,14 @@ export default class Active extends Component {
 
   componentWillUnmount() {
     clearInterval(this.timer);
+  }
+
+
+
+  handleChange(e) {
+    this.setState({
+      notes: e.target.value
+    })
   }
 
 
@@ -83,10 +101,17 @@ export default class Active extends Component {
 
     return (
       <div className="activeWrapper">
-        <div id="activeTimer">
-          {this.convertTime(this.props.time)}
+
+        <div className="activeActivitiesWrapper">
+          <div id="activeTimer">
+            {this.convertTime(this.props.time)}
+          </div>
+
+          {activities}
         </div>
-        {activities}
+
+        <Notes handleChange={this.handleChange} />
+
       </div>
     )
   }

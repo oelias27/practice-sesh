@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import './Setup.css';
 
+/**
+ *  * Redux *
+ * @param {Array} [activities] Activity object for tracking time
+ * 
+ * @module Setup
+ * @type {ReactClass}
+ */
 export default class Setup extends Component {
 
   handleClick() {

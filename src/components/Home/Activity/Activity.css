@@ -2,7 +2,6 @@
     width: 1070px;
     margin: auto;
     height: 150px;
-    /*border: 5px solid black;*/
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

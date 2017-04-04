@@ -1,13 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import Activity from './Activity/Activity.js';
 
-export default class Home extends Component {
-  render () {
-    return (
-      <div className="homeWrapper">
-        <Activity />
-      </div>
-    )
-  }
+/**
+ * Home component.
+ * Wrapper for history activity chart.
+ * 
+ * @module Home
+ * @type {StatelessComponent}
+ */
+const Home = (props) => {
+  return (
+    <div className="homeWrapper">
+      <h1>History</h1>
+      <Activity />
+    </div>
+  )
 }
+
+export default Home;

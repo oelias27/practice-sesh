@@ -53,7 +53,8 @@ const sessionReducer = (state = initialState.currentSession , action) => {
         {
           ...state,
           time: newTime,
-          activities: updateActivities
+          activities: updateActivities,
+          notes: action.notes
         }
       )
 

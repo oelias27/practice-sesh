@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
-import moment from 'moment';
+import generateHistory from './generateHistory';
 
 import Cell from './Cell/Cell.js';
 
 import './Activity.css';
 
-
+/**
+ * Activity graph component.
+ * Wrapper for history activity chart. 
+ * 
+ * children: {Cell}
+ * 
+ * @module Home
+ * @type {ReactClass}
+ */
 export default class Activity extends Component {
   constructor(props) {
     super(props);
 
-    let generateHistory = () => {
-      let history = [];
-      let currentTime = Date.now() / 1000;
-      let startingTime = currentTime - 32140800;
-
-      for (let i = 0; i < 371; i++) {
-
-        let dayStats = {
-          day: moment.unix(startingTime).format("dddd, MMMM Do YYYY"),
-          hoursPracticed: Math.floor(Math.random() * 8)
-        }
-
-        history.push(dayStats);
-
-        startingTime += 86400;
-      }
-
-      return history;
-    }
+    
 
     this.state = {
       history: generateHistory(),
@@ -51,8 +41,12 @@ export default class Activity extends Component {
 
   render() {
 
-    let graph = this.state.history.map((day, i) => {
-      return <Cell key={i} stats={day} />
+    let graph = this.state.history.map((date, i) => {
+      return <Cell 
+                key={i} 
+                hoursPracticed={date.hoursPracticed}
+                day={date.day}
+              />
     });
 
     let months = this.state.months.map((month, i) => {
@@ -65,7 +59,6 @@ export default class Activity extends Component {
 
     return (
       <div>
-        <p>Activity test</p>
         <div className="months">
           {months}
         </div>

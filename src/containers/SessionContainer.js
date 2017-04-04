@@ -26,8 +26,8 @@ const mapDispatchToProps = (dispatch) => {
     deleteActivity: (id) => {
       dispatch((deleteActivity(id)))
     },
-    tick: () => {
-      dispatch(tick())
+    tick: (notes) => {
+      dispatch(tick(notes))
     },
     toggleActivity: (id) => {
       dispatch(toggleActivity(id))
