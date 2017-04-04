@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 
-import './App.css';
-
 import NavContainer from './containers/NavContainer';
 
+import './App.css';
+
+/**
+ * Wrapper for app
+ * 
+ * children: {NavContainer}  
+ *           All mounted components after login
+ * 
+ * @module App
+ * @type {ReactClass}
+ */
 class App extends Component {
 
   render() {

@@ -3,6 +3,15 @@ import { browserHistory } from 'react-router';
 
 import './Login.css';
 
+/**
+ *  * Redux *
+ * @param {Boolean} [Authenticated] Check authenticated for redirect
+ * @param {String} [errorMessage] Error message if not authenticated 
+ * 
+ * 
+ * @module Login
+ * @type {ReactClass}
+ */
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +35,8 @@ class Login extends Component {
     }
 
     handleKeyUp(e) {
-        if (e.target.key === "Enter") {
+        
+        if (e.key === "Enter") {
             this.sendLogin();
         }
     }

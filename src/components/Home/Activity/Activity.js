@@ -5,7 +5,15 @@ import Cell from './Cell/Cell.js';
 
 import './Activity.css';
 
-
+/**
+ * Activity graph component.
+ * Wrapper for history activity chart. 
+ * 
+ * children: {Cell}
+ * 
+ * @module Home
+ * @type {ReactClass}
+ */
 export default class Activity extends Component {
   constructor(props) {
     super(props);
@@ -33,8 +41,12 @@ export default class Activity extends Component {
 
   render() {
 
-    let graph = this.state.history.map((day, i) => {
-      return <Cell key={i} stats={day} />
+    let graph = this.state.history.map((date, i) => {
+      return <Cell 
+                key={i} 
+                hoursPracticed={date.hoursPracticed}
+                day={date.day}
+              />
     });
 
     let months = this.state.months.map((month, i) => {

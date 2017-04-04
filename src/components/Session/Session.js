@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './Session.css';
 
-export default class Session extends Component {
-
-  render () {
-
-    const children = React.Children.map(this.props.children, (child) => {
-      return React.cloneElement(child, this.props)
+/**
+ *  * Redux *
+ * @param {Number} [time] Session runtime in seconds
+ * @param {Array} [activities] Activity object for tracking time
+ *
+ * @module Session
+ * @type {StatelessComponent}
+ */
+const Session = (props) => {
+    const children = React.Children.map(props.children, (child) => {
+      return React.cloneElement(child, props)
     })
 
 
@@ -17,5 +22,6 @@ export default class Session extends Component {
         {children}
       </div>
     )
-  }
 }
+
+export default Session;

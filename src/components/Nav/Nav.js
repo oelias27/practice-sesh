@@ -3,6 +3,16 @@ import { browserHistory, Link } from 'react-router';
   
 import './Nav.css';
 
+/**
+ * 
+ *  * Redux *
+ * @param {String} [username] Authenticated user's username for display
+ * @param {Boolean} [authenticated] Determines if Nav should render
+ * 
+ * 
+ * @module Nav
+ * @type {ReactClass}
+ */
 export default class Nav extends Component {
   constructor(props) {
     super(props);

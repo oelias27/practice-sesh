@@ -1,5 +1,11 @@
 import moment from 'moment';
 
+/**
+ * Utility function to generate random 
+ * history for dev purposes.
+ * 
+ * @returns {Object Array} Array of objects, each obj is a day's sessions 
+ */
 const generateHistory = () => {
 
   let history = [];

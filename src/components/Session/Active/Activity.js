@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
 
+
+/**
+ * @param {Number} [key] Activity id for UI maintenance over renders
+ * @param {Number} [id] Activity id 
+ * @param {Number} [time] Active time in seconds
+ * @param {String} [details] Describes activity
+ * @param {Function} [convertTime] Converts seconds to readable format
+ * @param {Function} [toggleActivity] Fires action to toggle activity timer
+ * 
+ * @module Activity
+ * @type {ReactClass}
+ */
 class Activity extends Component {
     constructor(props) {
         super(props);
@@ -22,23 +34,6 @@ class Activity extends Component {
     
 
     toggleTimer() {
-        // if (this.state.active) {
-        //     clearInterval(this.timer);
-        // }
-        // else {
-        //     this.timer = setInterval(() => {
-        //         let timerCount = this.state.timerCount + 1;
-        //         this.setState({
-        //             ...this.state,
-        //             timerCount: timerCount
-        //         })
-        //     }, 1000)
-        // }
-
-        // this.setState({
-        //     ...this.state,
-        //     active: !this.state.active
-        // })   
         this.setState({
             active: !this.state.active
         })
